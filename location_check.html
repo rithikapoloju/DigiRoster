@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Check</title>
+    <link rel="stylesheet" href="location_check.css">
+    <style>
+        #map-placeholder {
+            width: 200px;
+            height: 200px;
+            border: 2px dashed #ccc;
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.9em;
+            color: #777;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        #map-placeholder.loading::before {
+            content: 'Locating...';
+        }
+        #map-placeholder.success::before {
+            content: 'Location Verified';
+            color: green;
+            font-weight: bold;
+        }
+        #map-placeholder.error::before {
+            content: 'Location Mismatch';
+            color: red;
+            font-weight: bold;
+        }
+        #proceedBtn {
+            display: none;
+            padding: 12px 25px;
+            background-color: #28a745; /* Green proceed button */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-top: 20px;
+        }
+        #proceedBtn:hover {
+            background-color: #1e7e34;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Checking Your Location</h1>
+        <div id="map-placeholder" class="loading"></div>
+        <p id="locationData" style="display:none;"></p>
+        <p id="matchStatus" style="display:none;"></p>
+        <button id="tryAgainBtn" style="display:none;">Try Again</button>
+        <button id="proceedBtn">Proceed</button>
+    </div>
+
+    <script src="location_check.js"></script>
+</body>
+</html>
+
+
